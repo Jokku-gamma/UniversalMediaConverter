@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: media-converter
+    runtime: docker
+    dockerfilePath: Dockerfile
+    buildCommand: docker build -t media-converter .
+    startCommand: docker run -p 10000:10000 media-converter
+    port: 10000
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: 1
